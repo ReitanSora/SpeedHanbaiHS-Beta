@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:p="http://primefaces.org/ui"
+    >
+
+    <h:head>
+        <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+        <h:outputStylesheet library="css" name="style.css"></h:outputStylesheet>
+        <link rel="shortcut icon" type="image/png" href="resources/img/logo-icon.png"></link>
+        <title>Speed Hanbai HS</title>
+    </h:head>
+
+    <h:body class="principal" >
+
+        <div class="header">
+            <img src="resources/img/logo.png"></img>
+            <div>
+                <p>Speed Hanbai HS</p>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="card-container">
+                <div class="form-container sign-up">
+                    <h:form id="register-form">
+                        <h1>Registrarse</h1>
+                        <p>Por favor, ingresa toda tu información a continuación</p>
+                        <p:inputText id="sign-up-nickname" placeholder="Ingrese un nombre de usuario" value="#{usuarioBean.usuario.nombreUsuario}" required="true"></p:inputText>
+                        <p:inputText id="sign-up-email" placeholder="Ingrese un email" value="#{usuarioBean.usuario.correo}" required="true"></p:inputText>
+                        <p:password id="sign-up-password" placeholder="Ingrese una contraseña" value="#{usuarioBean.usuario.clave}" required="true"></p:password>
+                        <h:commandButton class="commandButton" id="sign-up-submit" actionListener="#{usuarioBean.guardar()}" value="Registrarme"></h:commandButton>
+                    </h:form>
+
+                </div>
+
+                <div class="form-container sign-in">
+                    <h:form>
+                        <h1>Iniciar Sesión</h1>
+                        <p>Ingresa tu nombre de usuario y contraseña para ingresar</p>
+                        <p:inputText id="sign-in-nickname" placeholder="Nombre de usuario" value="#{usuarioBean.usuario.nombreUsuario}" required="true"></p:inputText>
+                        <p:password id="sign-in-password" placeholder="Contraseña" value="#{usuarioBean.usuario.clave}" required="true"></p:password>
+                        <h:commandButton class="commandButton" id="sign-in-submit" action="#{usuarioBean.validar()}" value="Ingresar" ></h:commandButton>
+                    </h:form>
+                    
+                </div>
+
+                <div class="toggle-container">
+                    <div class="toggle">
+                        <div class="toggle-panel toggle-left" >
+                            <h1>¡Bienvenido de nuevo!</h1>
+                            <p>Si ya tienes una cuenta puedes logearte para continuar donde lo dejaste</p>
+                            <button class="hidden" id="login" >Iniciar Sesión</button>
+                        </div>
+                        <div class="toggle-panel toggle-right" >
+                            <h1>¿Eres nuevo?</h1>
+                            <p>Registrate para que tengas acceso a todas 
+                                las funciones de la plataforma</p>
+                            <button class="hidden" id="register" >Registrarme</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p:messages autoUpdate="true" showDetail="true" ></p:messages>
+        </div>
+        <h:outputScript library="js" target="body" name="script.js"></h:outputScript>
+    </h:body>
+</html>
