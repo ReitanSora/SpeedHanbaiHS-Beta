@@ -1,0 +1,252 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Comfortaa', sans-serif;
+}
+
+.principal{
+    background-color: #DCDCDD;
+    height: 100px;
+}
+
+
+.header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 10px;
+}
+
+.header img{
+    width: 50px;
+}
+
+.header div p{
+    font-size: 30px;
+    font-weight: bold;
+    color: #000;
+    margin-left: 20px;
+}
+
+
+.container{
+    display: flex;
+    flex-direction: column;
+    background-color: #F1F2F6;
+    height: 90vh;
+    border-radius: 20px;
+    margin: 0 20px 20px 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-container{
+    position: relative;
+    width: 768px;
+    max-width: 100%;
+    min-height: 480px;
+    background-color: #FFF;
+    border-radius: 20px;
+    box-shadow: 0 0px 10px #512bcf;
+    overflow: hidden;
+}
+
+.card-container p{
+    font-size: small;
+    line-height: 20px;
+    margin: 20px 0;
+}
+
+.card-container button{
+    font-size: 20px;
+    letter-spacing: 0.8px;
+    background-color: #512BCF;
+    color: #FFF;
+    box-shadow: none;
+    border: 1px solid transparent;
+    border-radius: 20px;
+    margin-top: 10px;
+    padding: 10px 25px;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+
+.commandButton{
+    
+    font-size: 20px !important;
+    letter-spacing: 0.8px !important;
+    background-color: #512BCF !important;
+    color: #FFF !important;
+    box-shadow: none !important;
+    border: 1px solid transparent !important;
+    border-radius: 20px !important;
+    margin-top: 10px !important;
+    padding: 10px 25px !important;
+    cursor: pointer !important;
+    transition: 0.4s !important;
+}
+
+.card-container button:hover{
+    background-color: #8069CC;
+}
+
+.commandButton:hover{
+    background-color: #8069CC !important;
+}
+
+.card-container .hidden{
+    background-color: transparent;
+    border-color: #FFF;
+    transition: 0.4s;
+}
+
+.card-container .hidden:hover{
+    background-color: #3b1f98;
+}
+
+
+.card-container form{
+    background-color: #FFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 40px;
+    height: 100%;
+}
+
+.card-container input{
+    text-shadow: none;
+    font-family: 'Comfortaa', sans-serif;
+    font-size: medium;
+    font-weight: bold;
+    width: 100%;
+    background-color: #DCDCDD;
+    border: none;
+    border-radius: 10px;
+    box-shadow: none;
+    margin: 10px 0;
+    padding: 10px 15px;
+    outline: none;
+}
+
+.card-container input:focus{
+    outline: none;
+    box-shadow: none;
+}
+
+.form-container{
+    position: absolute;
+    top: 0;
+    height: 100%;
+    transition: all0.6s ease-in-out;
+}
+
+.sign-in{
+    left: 0;
+    width: 50%;
+    z-index: 2;
+}
+
+.card-container.active .sign-in{
+    transform: translateX(100%)
+        
+}
+
+.sign-up{
+    left: 0;
+    width: 50%;
+    opacity: 0;
+    z-index: 1;
+}
+
+.card-container.active .sign-up{
+    transform: translateX(100%);
+    opacity: 1;
+    z-index: 5;
+    animation: move 0.6s;
+}
+
+@keyframes move{
+    0%, 49.99%{
+        opacity: 0;
+        z-index: 1;
+    }
+    50%, 100%{
+        opacity: 1;
+        z-index: 5;
+    }
+}
+
+.toggle-container{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    transition: all 0.6s ease-in-out;
+    border-radius: 50px 0 0 50px;
+    z-index: 1000;
+}
+
+.card-container.active .toggle-container{
+    transform: translateX(-100%);
+    border-radius: 0 50px 50px 0;
+}
+
+.toggle{
+    position: relative;
+    background-color: #512BCF;
+    height: 100%;
+    background: linear-gradient(to right, #5C6BC0, #512BCF);
+    color: #FFF;
+    left: -100%;
+    height: 100%;
+    width: 200%;
+    transform: translateX(0);
+    transition: all 0.6s ease-in-out;
+}
+
+.card-container.active .toggle{
+    transform: translateX(50%);
+    
+}
+
+.toggle-panel{
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    top: 0;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 0 30px;
+    transform: translateX(0);
+    transition: all 0.6s ease-in-out;
+}
+
+.toggle-left{
+    transform: translateX(-200%);
+} 
+
+.card-container.active .toggle-left{
+    transform: translateX(0);
+}
+
+.toggle-right{
+    right: 0;
+    transform: translateX(0);
+}
+
+.card-container.active .toggle-right{
+    transform: translateX(200%);
+}
