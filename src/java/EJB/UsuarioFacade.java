@@ -5,6 +5,7 @@
  */
 package EJB;
 
+import Controllers.Encrypt;
 import Entities.Usuario;
 import java.util.List;
 import javax.ejb.Stateless;
@@ -31,28 +32,28 @@ public class UsuarioFacade extends AbstractFacade<Usuario> implements UsuarioFac
         super(Usuario.class);
     }
     
-    
     @Override
     public Usuario acceder(Usuario us) {
         
         Usuario usuario = null;
+        Encrypt enc = new Encrypt();
+        
         String consulta;
         
         try {
             consulta = "FROM Usuario u WHERE u.nombreUsuario =?1 AND u.clave = ?2";
             Query query = em.createQuery(consulta);
             query.setParameter(1, us.getNombreUsuario());
-            query.setParameter(2, us.getClave());
+            
+            query.setParameter(2, enc.encrypt(us.getClave()));
             List<Usuario> lista = query.getResultList();
 
             if (!lista.isEmpty()) {
                 usuario = lista.get(0);
             }
         } catch (Exception e) {
-            throw e;
         }
         
         return usuario;
     }
-    
 }

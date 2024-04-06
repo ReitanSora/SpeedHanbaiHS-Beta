@@ -1,0 +1,153 @@
+<ui:composition template="/templates/firstAdminTemplate.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+
+    <ui:define name="content-admin">
+        <div class="card-box">
+            <div class="card">
+                <div>
+                    <div class="card-value">
+                        <span>129</span>
+                    </div>
+                    <div class="card-name">
+                        <span>Visitas</span>
+                    </div>
+                </div>
+
+                <div class="card-icon">
+                    <img src="#{request.contextPath}/resources/images/closed-eye.png"/>
+                </div>
+            </div>
+
+            <div class="card">
+                <div>
+                    <div class="card-value">
+                        <span>3</span>
+                    </div>
+                    <div class="card-name">
+                        <span>Usuarios nuevos</span>
+                    </div>
+                </div>
+
+                <div class="card-icon">
+                    <img src="#{request.contextPath}/resources/images/closed-eye.png"/>
+                </div>
+            </div>
+
+            <div class="card">
+                <div>
+                    <div class="card-value">
+                        <span>8</span>
+                    </div>
+                    <div class="card-name">
+                        <span>Ventas</span>
+                    </div>
+                </div>
+
+                <div class="card-icon">
+                    <img src="#{request.contextPath}/resources/images/closed-eye.png"/>
+                </div>
+            </div>
+
+            <div class="card">
+                <div>
+                    <div class="card-value">
+                        <span>$300,80</span>
+                    </div>
+                    <div class="card-name">
+                        <span>Ganancias</span>
+                    </div>
+                </div>
+
+                <div class="card-icon">
+                    <img src="#{request.contextPath}/resources/images/closed-eye.png"/>
+                </div>
+            </div>
+        </div>
+
+        <div class="details">
+            <div class="recent-orders">
+                <div class="details-card-header">
+                    <h2>Ordenes Recientes</h2>
+                    <h:link class="detail-btn" value="Ver todas"></h:link>
+                </div>
+
+                <h:dataTable class="details-table" value="#{productoBean.listaProductos}" var="listaProductos">
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText class="table-title" value="Nombre"></h:outputText>
+                        </f:facet>
+                        <h:outputText class="table-value" value="#{listaProductos.nombre}"></h:outputText>
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText class="table-title" value="Marca"></h:outputText>
+                        </f:facet>
+                        <h:outputText class="table-value" value="#{listaProductos.proveedoresIdProveedor.nombreProveedor}"></h:outputText>
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText class="table-title" value="Categoría"></h:outputText>
+                        </f:facet>
+                        <h:outputText class="table-value" value="#{listaProductos.categoriasIdCategoria.nombre}"></h:outputText>
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText class="table-title" value="Precio"></h:outputText>
+                        </f:facet>
+                        <h:outputText class="table-value" value="#{listaProductos.precio}"></h:outputText>
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText class="table-title" value="Stock"></h:outputText>
+                        </f:facet>
+                        <h:outputText class="table-value" value="#{listaProductos.stock}"></h:outputText>
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText class="table-title" value="SKU"></h:outputText>
+                        </f:facet>
+                        <h:outputText class="table-value" value="#{listaProductos.sku}"></h:outputText>
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText class="table-title" value="Estado"></h:outputText>
+                        </f:facet>
+                        <h:outputText class="table-value status delivered" value="Enviado"></h:outputText>
+                    </h:column>
+                </h:dataTable>
+            </div>
+
+            <div class="recent-customers">
+                <div class="details-card-header">
+                    <h2>Clientes Nuevos</h2>
+                </div>
+
+                <h:dataTable class="details-table" value="#{clienteBean.listaCliente}" var="listaCliente">
+                    <h:column>
+                        <div class="image-box">
+                            <img src="data:image/png;base64,#{listaCliente.usuarioIdUsuario.fotoUsuario}"/>
+                        </div>
+                    </h:column>
+
+                    <h:column>
+                        <h:outputLabel class="client-name" value="#{listaCliente.nombreCliente}"></h:outputLabel>
+                        <h:outputFormat class="client-lastName" value="#{listaCliente.apellidoCliente}"></h:outputFormat>
+                    </h:column>
+
+
+                </h:dataTable>
+            </div>
+        </div>
+    </ui:define>
+
+</ui:composition>

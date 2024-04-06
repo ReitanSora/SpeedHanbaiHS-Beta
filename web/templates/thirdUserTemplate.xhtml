@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//ES" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html lang="es"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+
+    <h:head>
+        <meta name="view-transition" content="same-origin" />
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+        <h:outputStylesheet library="css" name="firstUserStyle.css"></h:outputStylesheet>
+        <h:outputStylesheet library="css" name="thirdUserStyle.css"></h:outputStylesheet>
+        <link rel="shortcut icon" type="image/png" href="#{request.contextPath}/resources/images/logo-icon.png"></link>
+        <title>Speed Hanbai</title>
+    </h:head>
+
+    <h:body class="principal-user-primary" >
+
+        <div class="header-user-primary">
+            <nav>
+                <ul class="header-nav-list">
+                    <li>
+                        <h:link class="header-nav-list__item" outcome="toUserPanel">
+                            <img src="#{request.contextPath}/resources/images/user-solid-60.png"></img>
+                        </h:link>
+                    </li>
+                    <li>
+                        <h:link class="header-nav-list__item" >
+                            <img src="#{request.contextPath}/resources/images/cart-solid-60.png"></img>
+                        </h:link>
+                    </li>
+                    <li>
+                        <h:link class="header-nav-list__item" >
+                            <img src="#{request.contextPath}/resources/images/moon-solid-60.png"></img>
+                        </h:link>
+                    </li>
+
+                </ul>
+            </nav>
+
+            <div class="logo-sidebar-div">
+                <h:link outcome="toIndex">
+                    <img src="#{request.contextPath}/resources/images/logo.png"></img>
+                </h:link>
+            </div>
+        </div>
+
+        
+
+        <div class="container-user-third">
+            <ui:insert name="content"></ui:insert>
+            <p:messages autoUpdate="true" showDetail="true" ></p:messages>
+        </div>
+
+        <div class="footer-user">
+            <div class="footer-container">
+                <div class="footer-section">
+                    <h1>Speed Hanbai</h1>
+                    <img id="footer-logo" src="#{request.contextPath}/resources/images/logo.png"/>
+                    <h:outputLabel value="Esta es la descripción del negocio que se usará en el pie de página del aplicativo web llamado Speed Hanbai."></h:outputLabel>
+                </div>
+                <div class="footer-section">
+                    <h1>Sobre nosotros</h1>
+                    <a href="#">¿Quiénes somos?</a>
+                    <a href="#">Marcas</a>
+                    <a href="#">Políticas de garantía</a>
+                    <a href="#">Formas de pago</a>
+                </div>
+                <div class="footer-section">
+                    <h1>Contacto</h1>
+                    <h:outputLabel value="stivenpilca@gmail.com"></h:outputLabel>
+                    <h:outputLabel value="0999999999"></h:outputLabel>
+                    <div class="footer-section__app-logo">
+                        <a href="#"><img src="#{request.contextPath}/resources/images/whatsapp-app.png" /></a>
+                        <a href="#"><img src="#{request.contextPath}/resources/images/tik-tok-app.png" /></a>
+                        <a href="#"><img src="#{request.contextPath}/resources/images/facebook-app-symbol.png" /></a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="footer-copy">
+                &copy; 2023 - 2024 - Speed Hanbai - Stiven Pilca
+            </div>
+        </div>
+        <h:outputScript library="js" target="body" name="activeClass.js"></h:outputScript>
+    </h:body>
+</html>

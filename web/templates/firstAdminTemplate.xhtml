@@ -1,0 +1,216 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//ES" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="es"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+        <h:outputStylesheet library="css" name="firstAdminStyle.css"></h:outputStylesheet>
+        <link rel="shortcut icon" type="image/png" href="#{request.contextPath}/resources/images/logo-icon.png"></link>
+        <title>Speed Hanbai</title>
+    </h:head>
+    <h:body class="principal-admin-primary">
+
+        <!--Sidebar para categorias y filtros-->
+        <div class="sidebar-admin-primary">
+            <div class="sidebar-logo">
+                <h:link >
+                    <img src="#{request.contextPath}/resources/images/logo.png"></img>
+                </h:link>
+            </div>
+
+            <h1>
+                <span class="title-icon">
+                    <img src="#{request.contextPath}/resources/images/universal-access.png" />
+                </span>
+                <span class="title">Accesibilidad</span>
+            </h1>
+            <div class="sidebar-menu">
+                <nav>
+                    <ul class="sidebar-nav-list">
+                        <li class="sidebar-nav-item #{view.viewId == '/views/adminViews/dashboard.xhtml' ? 'active' : ''}">
+                            <h:link class="sidebar-nav-item__link">
+                                <span class="title-icon">
+                                    <img src="#{request.contextPath}/resources/images/category.png"/>
+                                </span>
+                                <span class="title">Dashboard</span>
+                            </h:link>
+                        </li>
+                        <li class="sidebar-nav-item #{view.viewId == '/views/userViews/categorias/procesador.xhtml' ? 'active' : ''}">
+                            <h:link class="sidebar-nav-item__link">
+                                <span class="title-icon">
+                                    <img src="#{request.contextPath}/resources/images/category.png"/>
+                                </span>
+                                <span class="title">Reportes</span>
+                            </h:link>
+                        </li>
+                        <li class="sidebar-nav-item #{view.viewId == '/views/userViews/categorias/procesador.xhtml' ? 'active' : ''}">
+                            <h:link class="sidebar-nav-item__link">
+                                <span class="title-icon">
+                                    <img src="#{request.contextPath}/resources/images/category.png"/>
+                                </span>
+                                <span class="title">Perfil</span>
+                            </h:link>
+                        </li>
+                        <li class="sidebar-nav-item #{view.viewId == '/views/userViews/categorias/procesador.xhtml' ? 'active' : ''}">
+                            <h:link class="sidebar-nav-item__link">
+                                <span class="title-icon">
+                                    <img src="#{request.contextPath}/resources/images/category.png"/>
+                                </span>
+                                <span class="title">Salir</span>
+                            </h:link>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+            <h1>
+                <span class="title-icon">
+                    <img src="#{request.contextPath}/resources/images/universal-access.png" />
+                </span>
+                <span class="title">Gestión</span>
+            </h1>
+            <div class="sidebar-menu">
+                <nav>
+                    <ul class="sidebar-nav-list">
+                        <li class="sidebar-nav-item #{view.viewId == '/views/userViews/categorias/tarjetaVideo.xhtml' ? 'active' : ''}">
+                            <h:link class="sidebar-nav-item__link">
+                                <span class="title-icon">
+                                    <img src="#{request.contextPath}/resources/images/category.png"/>
+                                </span>
+                                <span class="title">Categorías</span>
+                            </h:link>
+                        </li>
+                        <li class="sidebar-nav-item #{view.viewId == '/views/userViews/categorias/tarjetaVideo.xhtml' ? 'active' : ''}">
+                            <h:link class="sidebar-nav-item__link">
+                                <span class="title-icon">
+                                    <img src="#{request.contextPath}/resources/images/category.png"/>
+                                </span>
+                                <span class="title">Códigos</span>
+                            </h:link>
+                        </li>
+                        <li class="sidebar-nav-item #{view.viewId == '/views/userViews/categorias/tarjetaVideo.xhtml' ? 'active' : ''}">
+                            <h:link class="sidebar-nav-item__link">
+                                <span class="title-icon">
+                                    <img src="#{request.contextPath}/resources/images/category.png"/>
+                                </span>
+                                <span class="title">Criterio-Devolución</span>
+                            </h:link>
+                        </li>
+                        <li class="sidebar-nav-item #{view.viewId == '/views/userViews/categorias/tarjetaVideo.xhtml' ? 'active' : ''}">
+                            <h:link class="sidebar-nav-item__link">
+                                <span class="title-icon">
+                                    <img src="#{request.contextPath}/resources/images/category.png"/>
+                                </span>
+                                <span class="title">Descuento</span>
+                            </h:link>
+                        </li>
+                        <li class="sidebar-nav-item #{view.viewId == '/views/userViews/categorias/tarjetaVideo.xhtml' ? 'active' : ''}">
+                            <h:link class="sidebar-nav-item__link">
+                                <span class="title-icon">
+                                    <img src="#{request.contextPath}/resources/images/category.png"/>
+                                </span>
+                                <span class="title">Estados-Pedido</span>
+                            </h:link>
+                        </li>
+                        <li class="sidebar-nav-item #{view.viewId == '/views/userViews/categorias/tarjetaVideo.xhtml' ? 'active' : ''}">
+                            <h:link class="sidebar-nav-item__link">
+                                <span class="title-icon">
+                                    <img src="#{request.contextPath}/resources/images/category.png"/>
+                                </span>
+                                <span class="title">Facturas</span>
+                            </h:link>
+                        </li>
+                        <li class="sidebar-nav-item #{view.viewId == '/views/userViews/categorias/tarjetaVideo.xhtml' ? 'active' : ''}">
+                            <h:link class="sidebar-nav-item__link">
+                                <span class="title-icon">
+                                    <img src="#{request.contextPath}/resources/images/category.png"/>
+                                </span>
+                                <span class="title">IVA</span>
+                            </h:link>
+                        </li>
+                        <li class="sidebar-nav-item #{view.viewId == '/views/userViews/categorias/tarjetaVideo.xhtml' ? 'active' : ''}">
+                            <h:link class="sidebar-nav-item__link">
+                                <span class="title-icon">
+                                    <img src="#{request.contextPath}/resources/images/category.png"/>
+                                </span>
+                                <span class="title">Método-Pago</span>
+                            </h:link>
+                        </li>
+                        <li class="sidebar-nav-item #{view.viewId == '/views/userViews/categorias/tarjetaVideo.xhtml' ? 'active' : ''}">
+                            <h:link class="sidebar-nav-item__link">
+                                <span class="title-icon">
+                                    <img src="#{request.contextPath}/resources/images/category.png"/>
+                                </span>
+                                <span class="title">Negocio</span>
+                            </h:link>
+                        </li>
+                        <li class="sidebar-nav-item #{view.viewId == '/views/userViews/categorias/tarjetaVideo.xhtml' ? 'active' : ''}">
+                            <h:link class="sidebar-nav-item__link">
+                                <span class="title-icon">
+                                    <img src="#{request.contextPath}/resources/images/category.png"/>
+                                </span>
+                                <span class="title">Productos</span>
+                            </h:link>
+                        </li>
+                        <li class="sidebar-nav-item #{view.viewId == '/views/userViews/categorias/tarjetaVideo.xhtml' ? 'active' : ''}">
+                            <h:link class="sidebar-nav-item__link">
+                                <span class="title-icon">
+                                    <img src="#{request.contextPath}/resources/images/category.png"/>
+                                </span>
+                                <span class="title">Proveedores</span>
+                            </h:link>
+                        </li>
+                        <li class="sidebar-nav-item #{view.viewId == '/views/userViews/categorias/tarjetaVideo.xhtml' ? 'active' : ''}">
+                            <h:link class="sidebar-nav-item__link">
+                                <span class="title-icon">
+                                    <img src="#{request.contextPath}/resources/images/category.png"/>
+                                </span>
+                                <span class="title">Usuarios</span>
+                            </h:link>
+                        </li>
+                        <li class="sidebar-nav-item #{view.viewId == '/views/userViews/categorias/tarjetaVideo.xhtml' ? 'active' : ''}">
+                            <h:link class="sidebar-nav-item__link">
+                                <span class="title-icon">
+                                    <img src="#{request.contextPath}/resources/images/category.png"/>
+                                </span>
+                                <span class="title">Roles</span>
+                            </h:link>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+        </div>
+
+        <div class="main">
+            <div class="header-admin-primary">
+                <div class="user-image">
+                    <img src='data:image/jpeg;base64,#{usuarioBean.usuario.fotoUsuario}'/>
+                </div>
+
+                <div class="search-input-box">
+                    <div class="search-input-box__item">
+                        <input id="search-input" type="text" placeholder="Buscar"/>
+                        <img id="search-img" src="#{request.contextPath}/resources/images/search-regular-60.png"/>
+                    </div>
+                </div>
+
+                <div class="toggle">
+                    <img src="#{request.contextPath}/resources/images/menu-logo.png"/>
+                </div>
+            </div>
+
+            <div class="container-admin">
+                <ui:insert name="content-admin"></ui:insert>
+                <p:messages autoUpdate="true" showDetail="true" ></p:messages>
+            </div>
+        </div>
+
+
+        <h:outputScript library="js" target="body" name="menuToggle.js"></h:outputScript>
+    </h:body>
+</html>

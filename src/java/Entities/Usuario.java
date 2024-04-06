@@ -12,6 +12,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -47,7 +50,7 @@ public class Usuario implements Serializable {
     private String correo;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 15)
+    @Size(min = 1, max = 100)
     @Column(name = "clave")
     private String clave;
     @Basic(optional = false)
@@ -55,6 +58,13 @@ public class Usuario implements Serializable {
     @Size(min = 1, max = 20)
     @Column(name = "nombre_usuario")
     private String nombreUsuario;
+    @Lob
+    @Size(max = 2147483647)
+    @Column(name = "foto_usuario")
+    private String fotoUsuario;
+    @JoinColumn(name = "rol_id_rol", referencedColumnName = "id_rol")
+    @ManyToOne(optional = false)
+    private Rol rolIdRol;
 
     public Usuario() {
     }
@@ -100,6 +110,22 @@ public class Usuario implements Serializable {
 
     public void setNombreUsuario(String nombreUsuario) {
         this.nombreUsuario = nombreUsuario;
+    }
+
+    public String getFotoUsuario() {
+        return fotoUsuario;
+    }
+
+    public void setFotoUsuario(String fotoUsuario) {
+        this.fotoUsuario = fotoUsuario;
+    }
+
+    public Rol getRolIdRol() {
+        return rolIdRol;
+    }
+
+    public void setRolIdRol(Rol rolIdRol) {
+        this.rolIdRol = rolIdRol;
     }
 
     @Override

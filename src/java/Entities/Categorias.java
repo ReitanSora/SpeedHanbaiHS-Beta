@@ -17,6 +17,7 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -48,9 +49,11 @@ public class Categorias implements Serializable {
     @Size(min = 1, max = 45)
     @Column(name = "nombre")
     private String nombre;
-    @Size(max = 45)
+    @Size(max = 150)
     @Column(name = "descripcion")
     private String descripcion;
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "categorias")
+    private Ofertas ofertas;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "categoriasIdCategoria")
     private List<Productos> productosList;
 
@@ -88,6 +91,14 @@ public class Categorias implements Serializable {
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
+    }
+
+    public Ofertas getOfertas() {
+        return ofertas;
+    }
+
+    public void setOfertas(Ofertas ofertas) {
+        this.ofertas = ofertas;
     }
 
     @XmlTransient

@@ -8,7 +8,7 @@
     <h:head>
         <meta content='text/thml; charset=UTF-8' http-equiv="Content-Type"/>
         <h:outputStylesheet library="css" name="style2.css"></h:outputStylesheet>
-        <link rel="shortcut icon" type="image/png" href="resources/img/logo-icon.png"></link>
+        <link rel="shortcut icon" type="image/png" href="resources/images/logo-icon.png"></link>
         <title>Speed Hanbai HS</title>  
     </h:head>
 
@@ -68,10 +68,13 @@
         <div class="listado">
             <h:form id="lista-productos">
 
-                <p:dataTable  value="#{productoBean.listaProductos}" var="prod" styleClass="tabla-datos" emptyMessage="No hay datos disponibles">
-                    <p:column headerText="Id Producto" styleClass="tabla-datos th">
+                <h:dataTable  value="#{productoBean.listaProductos}" var="prod">
+                    <h:column>
+                        <f:facet name="header" class="column">
+                            <h:outputText value="ID"></h:outputText>
+                        </f:facet>
                         <h:outputText value="#{prod.idProducto}" styleClass="tabla-datos-td"></h:outputText>
-                    </p:column>
+                    </h:column>
                     <p:column headerText="Nombre" styleClass="tabla-datos th" >
                         <h:outputText value="#{prod.nombre}" styleClass="tabla-datos-td"></h:outputText>
                     </p:column>
@@ -100,7 +103,7 @@
                                          update=":producto-nuevo" oncomplete="PF('formulario').show()" styleClass="boton_eliminar">
                         </p:commandButton>
                     </p:column>
-                </p:dataTable>
+                </h:dataTable>
             </h:form>
             <p:messages autoUpdate="true" showDetail="true" ></p:messages>
         </div>

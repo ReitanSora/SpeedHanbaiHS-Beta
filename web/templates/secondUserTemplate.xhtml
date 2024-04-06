@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//ES" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html lang="es"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+
+    <h:head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+        <h:outputStylesheet library="css" name="secondUserStyle.css"></h:outputStylesheet>
+        <link rel="shortcut icon" type="image/png" href="#{request.contextPath}/resources/images/logo-icon.png"></link>
+        <title>Speed Hanbai</title>
+    </h:head>
+
+    <h:body class="principal-secondary" >
+
+        <div class="header">
+            <img src="#{request.contextPath}/resources/images/logo.png"></img>
+            <div>
+                <p>Speed Hanbai</p>
+            </div>
+        </div>
+
+        <div class="container">
+            <ui:insert name="content"></ui:insert>
+            <p:messages showDetail="true" ></p:messages>
+        </div>
+        <h:outputScript library="js" target="body" name="loginPanel.js"></h:outputScript>
+    </h:body>
+</html>

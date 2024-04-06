@@ -75,6 +75,7 @@ body{
     border-radius: 20px;
     margin: 10px 10px 10px 0;
     padding: 20px;
+    overflow-y: auto;
 }
 
 #nuevo{
@@ -193,4 +194,33 @@ body{
     color:#FFF !important;
     box-shadow: none;
     border: 2px solid #FFF !important;
+}
+
+.column{
+    color: #000;
+    margin-right: 30px;
+    padding-right: 20px;
+}
+
+::-webkit-scrollbar{
+    width: 10px;
+
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+    margin-block: 15px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+    background-clip: content-box;
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }

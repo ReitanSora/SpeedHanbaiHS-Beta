@@ -1,0 +1,96 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Mar 22, 2024, 12:55:48 PM
+    Author     : stive
+*/
+
+:root{
+    --main-color: #512BCF;
+    --detail-color: #DA2285;
+    --background-color: #F1F2F6;
+    --background-gray-color: #DCDCDD;
+}
+
+/*estilos para el contenedor principal*/
+.container-user-third{
+    min-height: 100vh;
+    diplay: flex;
+    background-color: var(--background-color);
+    border-radius: 20px 20px 0 0;
+    margin: 80px 1vw 0 1vw;
+    padding: 10px;
+}
+
+.page-title{
+    margin: 3vh 7vw 3vh 7vw;
+}
+
+/*estilos para el grid de elementos*/
+
+.user-menu__item{
+    height: 200px;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: transparent;
+    border: 2px solid #DA2285;
+    border-radius: 20px;
+    transition: 0.2s ease-in-out;
+}
+
+.user-menu__item:hover{
+    box-shadow: 0 0 10px #DA2285 inset;
+}
+
+.user-menu__item__form{
+    display: flex;
+}
+
+.user-menu__item__link{
+    width: 100%;
+    color: #000;
+    text-decoration: none;
+    display: flex;
+    flex-direction: row;
+    padding-left: 3vw;
+}
+
+.user-menu__item img{
+    width: 75px;
+    height: auto;
+    margin: auto;
+}
+
+.user-menu__item__description{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 2vh;
+    padding: 0 2vw 0 3vw;
+}
+
+.user-menu__item__description span:first-child{
+    font-weight: bold;
+}
+
+.user-menu__item__description span:last-child{
+    font-size: small;
+}
+
+.user-menu{
+    display: grid;
+    grid-template-columns:
+        repeat(
+            auto-fill,
+            minmax(min(100%, 400px), 1fr)
+        );
+    gap: 30px;
+    margin: 0 8vw 0 8vw;
+}

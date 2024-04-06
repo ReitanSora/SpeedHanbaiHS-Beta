@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap');
 
+:root{
+    --main-color: #512BCF;
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -7,9 +11,10 @@
     font-family: 'Comfortaa', sans-serif;
 }
 
-.principal{
+
+
+.principal-secondary{
     background-color: #DCDCDD;
-    height: 100px;
 }
 
 
@@ -19,7 +24,7 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    margin: 10px;
+    padding: 10px;
 }
 
 .header img{
@@ -38,12 +43,25 @@
     display: flex;
     flex-direction: column;
     background-color: #F1F2F6;
-    height: 90vh;
+    min-height: 90vh;
     border-radius: 20px;
     margin: 0 20px 20px 20px;
     align-items: center;
     justify-content: center;
 }
+
+@media (max-width:480px){
+    .header{
+        height: 75px;
+    }
+
+
+    .container{
+        min-height: 85vh;
+    }
+}
+
+/*div para los formularios de login y registro*/
 
 .card-container{
     position: relative;
@@ -78,7 +96,7 @@
 
 
 .commandButton{
-    
+
     font-size: 20px !important;
     letter-spacing: 0.8px !important;
     background-color: #512BCF !important;
@@ -156,7 +174,6 @@
 
 .card-container.active .sign-in{
     transform: translateX(100%)
-        
 }
 
 .sign-up{
@@ -216,7 +233,7 @@
 
 .card-container.active .toggle{
     transform: translateX(50%);
-    
+
 }
 
 .toggle-panel{
@@ -249,4 +266,97 @@
 
 .card-container.active .toggle-right{
     transform: translateX(200%);
+}
+
+@media (max-width:480px){
+    
+    h1{
+        font-size: larger;
+    }
+
+    .card-container{
+        text-align: center;
+        width: 70vw;
+        min-height: 600px;
+        margin: 40px 0 40px 0;
+    }
+
+    .card-container p{
+        font-size: small;
+        line-height: 15px;
+        margin: 15px 0;
+    }
+
+    .card-container button{
+        font-size: 15px;
+        letter-spacing: 0;
+    }
+
+
+    .commandButton{
+        font-size: 15px !important;
+        letter-spacing: 0 !important;
+    }
+
+    .card-container form{
+        padding: 0 20px;
+    }
+
+    .card-container input{
+        font-size: small;
+        margin: 5px 0;
+        padding: 10px 15px;
+    }
+    
+    .form-container{
+        top: 0;
+        height: 50%;
+    }
+
+    .sign-in{
+        top: 0;
+        width: 100%;
+        height: 50%;
+    }
+
+    .card-container.active .sign-in{
+        transform: translateY(100%)
+    }
+
+    .sign-up{
+        top: 0;
+        width: 100%;
+        height: 50%;
+        opacity: 0;
+        z-index: 1;
+    }
+
+    .card-container.active .sign-up{
+        transform: translateY(100%);
+        opacity: 1;
+        z-index: 5;
+        animation: move 0.6s;
+    }
+
+    .toggle-container{
+        top: 50%;
+        left: 0;
+        width: 100%;
+        height: 50%;
+        border-radius: 50px 50px 0 0;
+    }
+
+    .card-container.active .toggle-container{
+        transform: translateY(-100%);
+        border-radius: 0 0 50px 50px;
+    }
+
+    .toggle{
+        height: 100%;
+        background: linear-gradient(to top, #5C6BC0, #512BCF);
+        left: -100%;
+        height: 100%;
+        width: 200%;
+    }
+
 }
