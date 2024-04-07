@@ -65,14 +65,14 @@
             <div class="user-menu__item">
 
                 <h:form class="user-menu__item__form">
-                    <h:link class="user-menu__item__link" outcome="toLogin" rendered="#{usuarioBean.usuario.nombreUsuario == null}">
+                    <h:link class="user-menu__item__link" outcome="toLogin" rendered="#{usuarioBean.verificarSesionActiva() == false}">
                         <img src="#{request.contextPath}/resources/images/login.png"/>
                         <div class="user-menu__item__description">
                             <span>Iniciar Sesión</span>
                             <span>Ingresa con tu usuario o registrate en la plataforma</span>
                         </div>
                     </h:link>
-                    <h:commandLink class="user-menu__item__link" action="#{usuarioBean.cerrarSesion()}" rendered="#{usuarioBean.usuario.nombreUsuario != null}">
+                    <h:commandLink class="user-menu__item__link" action="#{usuarioBean.cerrarSesion()}" rendered="#{usuarioBean.verificarSesionActiva() == true}">
                         <img src="#{request.contextPath}/resources/images/logout.png"/>
                         <div class="user-menu__item__description">
                             <span>Cerrar Sesión</span>

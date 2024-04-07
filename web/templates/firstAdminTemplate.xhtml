@@ -56,12 +56,15 @@
                             </h:link>
                         </li>
                         <li class="sidebar-nav-item #{view.viewId == '/views/userViews/categorias/procesador.xhtml' ? 'active' : ''}">
-                            <h:link class="sidebar-nav-item__link">
-                                <span class="title-icon">
-                                    <img src="#{request.contextPath}/resources/images/category.png"/>
-                                </span>
-                                <span class="title">Salir</span>
-                            </h:link>
+                            <h:form>
+                                <h:commandLink class="sidebar-nav-item__link" action="#{usuarioBean.cerrarSesion()}">
+                                    <span class="title-icon">
+                                        <img src="#{request.contextPath}/resources/images/category.png"/>
+                                    </span>
+                                    <span class="title">Salir</span>
+                                </h:commandLink>
+                            </h:form>
+                            
                         </li>
                     </ul>
                 </nav>
@@ -189,7 +192,7 @@
         <div class="main">
             <div class="header-admin-primary">
                 <div class="user-image">
-                    <img src='data:image/jpeg;base64,#{usuarioBean.usuario.fotoUsuario}'/>
+                    <img src='data:image/jpeg;base64,#{usuarioBean.obtenerSesionActivaA().fotoUsuario}'/>
                 </div>
 
                 <div class="search-input-box">

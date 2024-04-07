@@ -10,7 +10,6 @@ import Entities.Rol;
 import Entities.Usuario;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
-
 import java.io.InputStream;
 import java.io.OutputStream;
 import javax.inject.Named;
@@ -63,15 +62,6 @@ public class usuarioBean implements Serializable {
         this.rol = rol;
     }
     
-    public void listarImg(int id){
-        String sql = "select * from persona where Id = "+id;
-        InputStream inputStream = null;
-        OutputStream outputStream = null;
-        BufferedInputStream bufferedInputStream = null;
-        BufferedOutputStream bufferedOutpurStream = null;
-        
-    }
-
     @PostConstruct
     public void init() {
         this.usuario = new Usuario();
@@ -86,7 +76,7 @@ public class usuarioBean implements Serializable {
             Logger.getLogger(usuarioBean.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        this.rol = new Rol (1, "user");
+        this.rol = new Rol (2, "user");
         this.usuario.setRolIdRol(rol);
 
         this.usuarioFacade.create(usuario);
@@ -102,25 +92,50 @@ public class usuarioBean implements Serializable {
         try {
             us = this.usuarioFacade.acceder(this.usuario);
             if (us != null) {
-                
-                ruta = "/views/adminViews/dashboard?faces-redirect=true";
-                this.usuario = us;
+                if (us.getRolIdRol().getIdRol()== 1) {
+                    FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("admin", us);
+                    ruta = "/views/adminViews/dashboard?faces-redirect=true";
+                }else{
+                    FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("cliente", us);
+                    ruta = "/views/userViews/userPanel?faces-redirect=true";
+                }
             } else {
-                this.usuario = new Usuario();
                 context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Aviso", "Credenciales incorrectas"));
             }
         } catch (Exception e) {
             context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Aviso", "Error!"));
         }
+        this.usuario = new Usuario();
 
         return ruta;
     }
 
     public String cerrarSesion() {
-        this.usuario = new Usuario();
+        FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
         String ruta = "/views/userViews/userPanel?faces-redirect=true";
 
         return ruta;
+    }
+    
+    public boolean verificarSesionActiva(){
+        Usuario us = (Usuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("cliente");
+        boolean resultado = false;
+        
+        if (us != null) {
+            resultado = true;
+        }
+        
+        return resultado;
+    }
+    
+    public Usuario obtenerSesionActivaA(){
+        Usuario us = (Usuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("admin");
+        return us;
+    }
+    
+    public Usuario obtenerSesionActivaC(){
+        Usuario us = (Usuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("cliente");
+        return us;
     }
 
     public usuarioBean() {
